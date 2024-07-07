@@ -1,0 +1,16 @@
+import = [
+"~/.config/alacritty/myTheme.toml",] #theme
+
+[font]
+size = 12
+#glyph_offset = { x = 1, y = 0 }
+[font.normal]
+family = "Cousine Nerd Font"
+
+[window]
+padding ={x = 6, y = 6}
+opacity = 0.95
+dimensions = { columns = 80, lines = 20 }
+
+[cursor]
+  style = "Beam" 
