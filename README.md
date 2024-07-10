@@ -5,7 +5,6 @@
 1. **Clone the repository**
    ```bash
    git clone https://github.com/alexborrazasm/dotfiles.git
-
 ## Fonts
 
 I use Cousune from [Nerd Fonts](https://www.nerdfonts.com/) 
@@ -23,7 +22,7 @@ How to install:
    ```bash
    cd /usr/share/fonts
    sudo unzip Cousine.zip -d Cousine
-
+   sudo rm cousine.zip # Remove .zip
 ## Zsh
 
 Zsh is a powerful command-line shell for Unix systems.
@@ -37,22 +36,18 @@ On Fedora:
    ```bash
    sudo dnf upgrade
    sudo dnf install zsh
-
 2. **Change default SHELL**
 
    ```bash
    chsh -s $(which zsh)
-   
 3. **You can check the default SHELL**
 
    ```bash
    echo $SHELL
-
 3. **Install plugins**:
 
    ```bash
    sudo dnf install zsh-syntax-highlighting zsh-autosuggestions
-
 4. **The [SUDO](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/sudo) plugin**
 
    ```bash
@@ -60,16 +55,13 @@ On Fedora:
    cd /usr/share/zsh-sudo
    wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh
    cd # return to your home dir
-
 5. **Theme**
 
    Install [p10k](https://github.com/romkatv/powerlevel10k) theme.
-
 6. **Copy .zshrc && .p10k.zsh**
    ```bash
    cp -f ~/dotfiles/zsh/.zshrc ~/.zshrc
    cp -f ~/dotfiles/p10k/.p10k.zsh ~/.p10k.zsh
-
 ## LunarVim
 
 [LunarVim](https://www.lunarvim.org/es/) is a Neovim distribution that offers a pre-configured setup to enhance the development experience.
@@ -102,9 +94,48 @@ To install Alacritty, follow these steps:
    ```bash
    sudo dnf upgrade
    sudo dnf install alacritty
-
 2. **Copy config**
 
    ```bash
    mkdir -p .config/alacrity
    cp dotfiles/alacritty/* .config/alacrity
+## Asus Linux
+
+[Asus Linux](https://asus-linux.org/)
+
+## GRUB
+
+[Minimal ROG theme](https://github.com/hotaru-hspr/rog-grub)
+
+Follow these steps:
+
+1. **Install theme**:
+   
+   ```bash
+   git clone https://github.com/hotaru-hspr/rog-grub
+   cd rog-grub
+   sudo chmod +x install.sh
+   sudo ./install.sh -s 2k
+2. **Remove repo**:
+
+   ```bash
+   cd ..
+   rm -rf rog-grub
+
+3. **GRUB saved last choice**
+
+    ```bash
+    sudo nano /etc/default/grub
+
+4. **Add to file**
+
+    ``` /etc/default/grub
+    GRUB_DEFAULT=saved
+    GRUB_SAVEDEFAULT=true
+    GRUB_DISABLE_SUBMENU=false # To clean entries
+
+5. **Update grub files**
+    On Red Hat/CentOS/Fedora:
+    ```bash
+    sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+
