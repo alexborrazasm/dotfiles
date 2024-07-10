@@ -1,8 +1,42 @@
 # My dotfiles
 
+## Index
+
+1. [Set up dotfiles](#set-up-dotfiles)
+   
+   1.1 [Install Fonts](#fonts)
+
+   1.2 [Install and configure ZSH](#zsh)
+
+   1.3 [LunarVim](#lunarvim)
+
+   1.4 [FZF](#fzf)
+
+   1.5 [Alacritty](#alacritty)
+
+   1.6 [Asus Linux](#asus-linux)
+
+   1.7 [Setup GRUB & theming](#grub)
+
+2. [Tips for Windows Dual Boot](#tips-for-windows-dual-boot)
+
+   2.1 [The clock problem](#the-clock-problem)
+
+   2.2 [Disable fast startup](#disable-fast-startup)
+
+3. [Tips for Windows](#tips-for-windows)
+   
+   3.1 [Disable cpu boost on laptop](#disable-cpu-boost-on-laptop)
+
+   3.2 [Consent Prompt in Windows](#changing-the-consent-prompt-behavior-in-windows)
+
+   3.3 [Windows Subsystem for Linux (WSL)](#windows-subsystem-for-linux-wsl)
+
 **Warning**: Don’t blindly use my settings unless you know what that entails. Use at your own risk!
 
-1. **Clone the repository**
+# Set up dotfiles
+
+1. **First clone the repository**
 
    ```bash
    git clone https://github.com/alexborrazasm/dotfiles.git
