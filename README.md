@@ -16,7 +16,7 @@
 
    1.6 [Asus Linux](#asus-linux)
 
-   1.7 [Setup GRUB & theming](#grub)
+   1.7 [Set up GRUB & theming](#grub)
 
 2. [Tips for Windows Dual Boot](#tips-for-windows-dual-boot)
 
