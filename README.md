@@ -36,13 +36,18 @@ Zsh is a powerful command-line shell for Unix systems.
 
 To install Zsh, follow these steps:
 
-On Fedora:
+1. **Install Zsh **:
 
-1. **Install Zsh**:
-
+   On Red Hat/CentOS/Fedora:
    ```bash
    sudo dnf upgrade
-   sudo dnf install zsh
+   sudo dnf install zsh wget bat lsd
+   ```
+   On Debian/Ubuntu/Mint
+   ```bash
+   sudo apt update
+   sudo apt upgrade
+   sudo apt install zsh wget bat lsd
    ```
 
 2. **Change default SHELL**
@@ -58,18 +63,23 @@ On Fedora:
    ```
 
 3. **Install plugins**:
-
+   
+   On Red Hat/CentOS/Fedora:
    ```bash
    sudo dnf install zsh-syntax-highlighting zsh-autosuggestions
+   ```
+   On Debian/Ubuntu/Mint
+   ```
+   sudo apt install zsh-syntax-highlighting zsh-autosuggestions
    ```
 
 4. **The [SUDO](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/sudo) plugin**
 
    ```bash
-   mkdir /usr/share/zsh-sudo
+   sudo mkdir /usr/share/zsh-sudo
    cd /usr/share/zsh-sudo
-   wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh
-   cd # return to your home dir
+   sudo wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh
+   cd
    ```
 
 5. **Theme**
@@ -82,6 +92,63 @@ On Fedora:
    cp -f ~/dotfiles/zsh/.zshrc ~/.zshrc
    cp -f ~/dotfiles/p10k/.p10k.zsh ~/.p10k.zsh
    ```
+   Note for Debian/Ubuntu/Mint Users:
+
+   On Debian-based distributions, the bat command might be aliased to batcat. You need to update the alias in your .zshrc file. To do this:
+
+   1. Open the .zshrc file in a text editor:
+
+      ```bash
+      nano ~/.zshrc
+      ```
+   2. Make these changes
+
+      ```bash
+      #alias cat='bat'
+      alias cat ='batcat'
+      #alias catp='bat -p' #plain text
+      alias catp='batcat -p' #plain text
+      ```
+   
+   3. Save the changes and exit the text editor (Ctrl + X, then Y to confirm, then Enter).
+
+Once you've completed these steps:
+
+- Restart your terminal or source your .zshrc to apply the changes (source ~/.zshrc).
+   
+- Your Zsh shell should now be configured with plugins like syntax highlighting, autosuggestions, and the sudo plugin, along with the Powerlevel10k theme.
+
+### Linking Zsh Configuration to Root User
+
+You can link your configuration to that of the root user.
+
+1. **Login as root**
+
+   ```bash
+   sudo su
+   ```
+
+2. **Go to root home**
+
+   ```bash
+   cd
+   ```
+
+3. **Install [p10k](https://github.com/romkatv/powerlevel10k) theme**
+
+4. Link the configs
+
+   ```bash
+   ln -s /home/<yourusername>/.zshrc /root/.zshrc
+   ln -s /home/<yourusername>/.p10k.zsh /root/.p10k.zsh
+   ```
+   These commands create symbolic links (ln -s) from the original files in /home/`<yourusername>`/ to your root user's home directory (/root/). This allows the root user to use the same configuration files as your regular user.
+
+Now, when you log in as root and start a new Zsh session, it should use the Powerlevel10k theme with the configurations you've set up. Make sure to adjust paths (/home/`<yourusername>`/) if your actual user's home directory is different.
+
+### Note
+- [LSD](https://github.com/lsd-rs/lsd) (LSDeluxe) is a modern replacement for the traditional ls command, designed to enhance the way you view directory contents.
+- [BAT](https://github.com/sharkdp/bat) is a cat clone with syntax highlighting and Git integration.
 
 ## LunarVim
 
@@ -108,7 +175,7 @@ FZF is primarily used to interactively search and select items from a list. For 
 
 To install Alacritty, follow these steps:
 
-   On Fedora:
+   On Red Hat/CentOS/Fedora:
 
 1. **Install Zsh**:
 
