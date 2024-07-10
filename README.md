@@ -298,7 +298,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
 ### Note:
 Changing registry settings can affect system stability and security. Proceed with caution and make sure to follow the steps accurately.
 
-##  Windows Subsystem for Linux (WSL)
+##  Windows Subsystem for Linux ([WSL](https://learn.microsoft.com/en-us/windows/wsl/))
 Install Linux on Windows.
 
 Follow these steps:
