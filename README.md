@@ -290,7 +290,7 @@ Windows and Linux use two different approaches to keep track of time.
 2. In the Registry editor, navigate to the following key:
 
    ```
-   HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation.
+   HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation
    ```
 
 3. Create a new value with the DWORD type and the name RealTimeIsUniversal.
