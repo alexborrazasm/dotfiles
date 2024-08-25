@@ -148,6 +148,8 @@ To install Zsh, follow these steps:
 
 Once you've completed these steps:
 
+- For shell changes to take effect, it may be necessary to restart your session or computer.
+
 - Restart your terminal or source your .zshrc to apply the changes (source ~/.zshrc).
    
 - Your Zsh shell should now be configured with plugins like syntax highlighting, autosuggestions, and the sudo plugin, along with the Powerlevel10k theme.
@@ -221,8 +223,8 @@ To install Alacritty, follow these steps:
 2. **Copy config**
 
    ```bash
-   mkdir -p .config/alacrity
-   cp dotfiles/alacritty/* .config/alacrity
+   mkdir -p .config/alacritty
+   cp dotfiles/alacritty/* .config/alacritty
    ```
 
 ## Asus Linux
