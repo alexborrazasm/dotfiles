@@ -53,7 +53,7 @@ How to install:
 2. **Copy to fonts**
 
    ```bash
-   sudo mv ~/Downloads/fontName.zip /usr/share/fonts/
+   sudo mv ~/Downloads/Cousine.zip /usr/share/fonts/
    ```
 
 3. **Unpack the fonts**
@@ -61,7 +61,7 @@ How to install:
    ```bash
    cd /usr/share/fonts
    sudo unzip Cousine.zip -d Cousine
-   sudo rm cousine.zip # Remove .zip
+   sudo rm Cousine.zip # Remove .zip
    ```
 
 ## Zsh
