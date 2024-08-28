@@ -167,9 +167,9 @@ You can link your configuration to that of the root user.
 2. **Link the configs**
 
    ```bash
-   ln -s .zshrc /root/.zshrc
-   ln -s .p10k.zsh /root/.p10k.zsh
-   ln -s .powerlevel10k/ /root/powerlevel10k/
+   ln -s /home/`<yourusername>`/.zshrc /root/.zshrc
+   ln -s /home/`<yourusername>`/p10k.zsh /root/.p10k.zsh
+   ln -s /home/`<yourusername>`/.powerlevel10k/ /root/powerlevel10k/
    ```
 
 These commands create symbolic links (ln -s) from the original files in /home/`<yourusername>`/ to your root user's home directory (/root/). This allows the root user to use the same configuration files as your regular user.
