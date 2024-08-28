@@ -123,7 +123,7 @@ alias lla='lsd -lha --group-dirs=first'
 alias ls='lsd --group-dirs=first'
 # bat in fedora arch && batcat in debian
 alias cat='bat'
-#alias cat ='batcat'
+#alias cat='batcat'
 alias catp='bat -p' #plain text
 #alias catp='batcat -p' #plain text
 alias dc="cd .."
