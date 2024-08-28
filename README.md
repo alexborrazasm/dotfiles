@@ -16,7 +16,7 @@
 
    1.6 [Asus Linux](#asus-linux)
 
-   1.7 [Setup GRUB & theming](#grub)
+   1.7 [Set up GRUB & theming](#grub)
 
 2. [Tips for Windows Dual Boot](#tips-for-windows-dual-boot)
 
@@ -53,7 +53,7 @@ How to install:
 2. **Copy to fonts**
 
    ```bash
-   sudo mv ~/Downloads/fontName.zip /usr/share/fonts/
+   sudo mv ~/Downloads/Cousine.zip /usr/share/fonts/
    ```
 
 3. **Unpack the fonts**
@@ -61,7 +61,7 @@ How to install:
    ```bash
    cd /usr/share/fonts
    sudo unzip Cousine.zip -d Cousine
-   sudo rm cousine.zip # Remove .zip
+   sudo rm Cousine.zip # Remove .zip
    ```
 
 ## Zsh
@@ -148,6 +148,8 @@ To install Zsh, follow these steps:
 
 Once you've completed these steps:
 
+- For shell changes to take effect, it may be necessary to restart your session or computer.
+
 - Restart your terminal or source your .zshrc to apply the changes (source ~/.zshrc).
    
 - Your Zsh shell should now be configured with plugins like syntax highlighting, autosuggestions, and the sudo plugin, along with the Powerlevel10k theme.
@@ -221,8 +223,8 @@ To install Alacritty, follow these steps:
 2. **Copy config**
 
    ```bash
-   mkdir -p .config/alacrity
-   cp dotfiles/alacritty/* .config/alacrity
+   mkdir -p .config/alacritty
+   cp dotfiles/alacritty/* .config/alacritty
    ```
 
 ## Asus Linux
@@ -290,7 +292,7 @@ Windows and Linux use two different approaches to keep track of time.
 2. In the Registry editor, navigate to the following key:
 
    ```
-   HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation.
+   HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation
    ```
 
 3. Create a new value with the DWORD type and the name RealTimeIsUniversal.
