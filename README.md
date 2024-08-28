@@ -159,26 +159,26 @@ You can link your configuration to that of the root user.
 1. **Login as root**
 
    ```bash
-   sudo su
+   cd; sudo su
    ```
 
-2. **Go to root home**
+2. **Link the configs**
 
    ```bash
-   cd
+   ln -s .zshrc /root/.zshrc
+   ln -s .p10k.zsh /root/.p10k.zsh
+   ln -s powerlevel10k/ /root/powerlevel10k
    ```
 
-3. **Install [p10k](https://github.com/romkatv/powerlevel10k) theme**
+These commands create symbolic links (ln -s) from the original files in /home/`<yourusername>`/ to your root user's home directory (/root/). This allows the root user to use the same configuration files as your regular user.
 
-4. Link the configs
+3. **Change default SHELL**
 
    ```bash
-   ln -s /home/<yourusername>/.zshrc /root/.zshrc
-   ln -s /home/<yourusername>/.p10k.zsh /root/.p10k.zsh
+   chsh -s $(which zsh)
    ```
-   These commands create symbolic links (ln -s) from the original files in /home/`<yourusername>`/ to your root user's home directory (/root/). This allows the root user to use the same configuration files as your regular user.
 
-Now, when you log in as root and start a new Zsh session, it should use the Powerlevel10k theme with the configurations you've set up. Make sure to adjust paths (/home/`<yourusername>`/) if your actual user's home directory is different.
+Now, when you log in as root and start a new Zsh session, it should use the Powerlevel10k theme with the configurations you've set up.
 
 ### Note
 - [LSD](https://github.com/lsd-rs/lsd) (LSDeluxe) is a modern replacement for the traditional ls command, designed to enhance the way you view directory contents.
