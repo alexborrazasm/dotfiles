@@ -126,7 +126,7 @@ alias cat='bat'
 #alias cat='batcat'
 alias catp='bat -p' #plain text
 #alias catp='batcat -p' #plain text
-alias dc="cd .."
+alias dc='cd ..'
 
 # p10k 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
