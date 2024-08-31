@@ -309,10 +309,30 @@ Changing registry settings can affect system stability and security. Proceed wit
 ### Fix in Linux
 
    ```bash
-   timedatectl set-local-rtc 1 --adjust-system-clock
+   timedatectl set-local-rtc 1
    ````
 
    This command sets the system clock to interpret the hardware clock as set to local time (1), ensuring correct synchronization between Linux and Windows in dual-boot configurations.
+
+   'Note', in my last installation of Fedora 40 it already came in localtime, in this case if you want you want to put it in UTC:
+
+   ```bash
+   timedatectl set-local-rtc 0
+   ```
+
+   `Extra`, you can check if your linux is in localtime or not:
+
+   ```bash
+   ❯ timedatectl
+   ❯ timedatectl
+                  Local time: Sat 2024-08-31 03:36:53 CEST
+              Universal time: Sat 2024-08-31 01:36:53 UTC
+                    RTC time: Sat 2024-08-31 01:36:52
+                   Time zone: Europe/Madrid (CEST, +0200)
+   System clock synchronized: yes
+                 NTP service: active
+             RTC in local TZ: no  <------ no = UTC | yes = localtime
+   ```
 
 ## Disable fast startup
 Fast Startup works by hibernating the kernel session instead of fully shutting down and restarting the system. This can lead to issues with file system integrity, especially when accessing shared partitions (like NTFS partitions) from Linux. Disabling Fast Startup ensures that partitions are properly unmounted and any changes made are correctly written to disk.
