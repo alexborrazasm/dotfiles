@@ -161,12 +161,13 @@ You can link your configuration to that of the root user.
 1. **Login as root**
 
    ```bash
-   cd; sudo su
+   sudo su
    ```
 
 2. **Link the configs**
 
    ```bash
+   cd
    ln -s /home/<yourusername>/.zshrc /root/.zshrc
    ln -s /home/<yourusername>/.p10k.zsh /root/.p10k.zsh
    ln -s /home/<yourusername>/powerlevel10k /root/powerlevel10k
