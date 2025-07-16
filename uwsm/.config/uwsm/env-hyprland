@@ -1,0 +1,2 @@
+# Tell Hyperland which GPU to use
+export AQ_DRM_DEVICES="/dev/dri/card2:/dev/dri/card1"
