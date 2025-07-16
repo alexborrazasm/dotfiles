@@ -1,5 +1,5 @@
 # My dotfiles
-
+# TODO This readme is obsolete.
 ## Index
 
 1. [Set up dotfiles](#set-up-dotfiles)
