@@ -6,19 +6,17 @@
   "modules-left": [
     "hyprland/workspaces",
     "network",
-    "custom/lock",
-    "custom/reboot",
-    "custom/power"
+    "tray",
+    "power-profiles-daemon",
+    "battery",
   ],
   "modules-center": ["hyprland/window"],
   "modules-right": [
-    "battery",
     "pulseaudio",
     "backlight",
     "custom/temperature",
     "cpu",
     "memory",
-    "tray",
     "clock",
     "custom/notification"
   ],
@@ -47,7 +45,7 @@
     "tooltip-format": "Poweroff"
   },
   "network": {
-    "format": "<span color='#6cb6eb'>🌐</span> {ipaddr}",
+    "format": "<span color='#6cb6eb'> 🌐</span> {ipaddr} ",
     "tooltip": true,
     "tooltip-format": "IP: {ipaddr}\nInterface: {ifname}\nSignal: {signalStrength}%"
   },
@@ -130,6 +128,18 @@
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
     "on-click-right": "blueman-manager"
+  },
+  "power-profiles-daemon": {
+    "format": " {icon}",
+    "tooltip-format": "Power profile: {profile}",
+    "tooltip": true,
+    "interval": 1,
+    "format-icons": {
+      "default": " ",
+      "performance": " ",
+      "balanced": " ",
+      "power-saver": " "
+    }
   },
   "custom/notification": {
     "tooltip": false,
