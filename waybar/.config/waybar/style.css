@@ -34,47 +34,24 @@
   color: @text;
 }
 
-/* Transparent Waybar background */
+/* Waybar base */
 #waybar {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: @base;
   border: none;
   box-shadow: none;
+  border-radius: 12px;
 }
 
 /* Common styling for modules */
-#workspaces,
-#window {
-  background-color: @base;
-  padding: 4px 6px;
-  margin-top: 6px;
-  margin-left: 6px;
-  margin-right: 6px;
-  border-radius: 10px;
-  border-width: 0px;
-}
-
 #custom-notification,
 #battery,
-#custom-power {
-  background-color: @base;
-  margin-top: 6px;
-  margin-right: 6px;
-  padding: 4px 0px 4px 2px;
-  border-radius: 0 10px 10px 0;
-  border-width: 0px;
-}
-
 #network,
 #pulseaudio,
-#custom-lock {
-  background-color: @base;
-  margin-top: 6px;
-  margin-left: 4px;
-  padding: 4px 2px 4px 2px;
-  border-radius: 10px 0 0 10px;
-  border-width: 0px;
-}
-
+#custom-lock,
+#network,
+#pulseaudio,
+#custom-lockcustom-power,
+#workspaces,
 #custom-reboot,
 #bluetooth,
 #power-profiles-daemon,
@@ -83,13 +60,13 @@
 #backlight,
 #custom-temperature,
 #memory,
-#cpu {
+#cpu,
+#window {
   background-color: @base;
-  margin-top: 6px;
-  padding: 4px 2px;
+  border-radius: 10px;
   border-width: 0px;
+  padding-right: 2px;
 }
-
 /* Special states */
 #custom-temperature.critical,
 #pulseaudio.muted {
@@ -114,13 +91,13 @@
 #custom-notification:hover,
 #window:hover {
   background-color: @surface1;
+  margin: 2px;
 }
 
 /* Workspace hover effect */
 #workspaces button:hover {
   background-color: @surface2;
-  padding: 2px 8px;
-  margin: 0 2px;
+  margin: 2px;
   border-radius: 10px;
 }
 
@@ -128,8 +105,7 @@
 #workspaces button.active {
   background-color: @surface0;
   color: @text;
-  padding: 2px 8px;
-  margin: 0 2px;
+  margin: 2px;
   border-radius: 10px;
 }
 
