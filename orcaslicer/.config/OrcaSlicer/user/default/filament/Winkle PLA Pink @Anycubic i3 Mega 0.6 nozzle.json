@@ -1,0 +1,13 @@
+{
+    "filament_max_volumetric_speed": [
+        "14"
+    ],
+    "filament_settings_id": [
+        "Winkle PLA Pink @Anycubic i3 Mega 0.6 nozzle"
+    ],
+    "from": "User",
+    "inherits": "Generic PLA template @Anycubic i3 Mega 0.4 nozzle",
+    "is_custom_defined": "0",
+    "name": "Winkle PLA Pink @Anycubic i3 Mega 0.6 nozzle",
+    "version": "1.7.0.2"
+}

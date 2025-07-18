@@ -1,0 +1,31 @@
+{
+    "default_filament_colour": [
+        "#808080"
+    ],
+    "enable_pressure_advance": [
+        "1"
+    ],
+    "filament_flow_ratio": [
+        "0.9499"
+    ],
+    "filament_max_volumetric_speed": [
+        "14.7"
+    ],
+    "filament_settings_id": [
+        "Overtune ASA Grey @K1Max"
+    ],
+    "filament_vendor": [
+        "Overtune"
+    ],
+    "from": "User",
+    "inherits": "Creality Generic ASA",
+    "is_custom_defined": "0",
+    "name": "Overtune ASA Grey @K1Max",
+    "pressure_advance": [
+        "0.03656"
+    ],
+    "slow_down_layer_time": [
+        "1"
+    ],
+    "version": "2.1.1.0"
+}

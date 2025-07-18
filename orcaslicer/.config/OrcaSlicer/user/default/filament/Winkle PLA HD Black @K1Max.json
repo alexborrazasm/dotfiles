@@ -1,0 +1,46 @@
+{
+    "additional_cooling_fan_speed": [
+        "85"
+    ],
+    "default_filament_colour": [
+        "#101010"
+    ],
+    "enable_pressure_advance": [
+        "1"
+    ],
+    "filament_cost": [
+        "28"
+    ],
+    "filament_flow_ratio": [
+        "0.9702"
+    ],
+    "filament_max_volumetric_speed": [
+        "27"
+    ],
+    "filament_settings_id": [
+        "Winkle PLA HD Black @K1Max"
+    ],
+    "filament_vendor": [
+        "Winkle"
+    ],
+    "from": "User",
+    "inherits": "Creality Generic PLA High Speed @K1-all",
+    "is_custom_defined": "0",
+    "name": "Winkle PLA HD Black @K1Max",
+    "nozzle_temperature": [
+        "230"
+    ],
+    "nozzle_temperature_initial_layer": [
+        "230"
+    ],
+    "pressure_advance": [
+        "0.035"
+    ],
+    "reduce_fan_stop_start_freq": [
+        "1"
+    ],
+    "slow_down_layer_time": [
+        "4"
+    ],
+    "version": "2.1.1.0"
+}

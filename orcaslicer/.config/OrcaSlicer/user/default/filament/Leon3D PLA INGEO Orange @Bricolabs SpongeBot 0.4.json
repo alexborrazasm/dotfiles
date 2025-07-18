@@ -1,0 +1,34 @@
+{
+    "default_filament_colour": [
+        "#FF8000"
+    ],
+    "enable_pressure_advance": [
+        "1"
+    ],
+    "filament_flow_ratio": [
+        "0.95"
+    ],
+    "filament_max_volumetric_speed": [
+        "14"
+    ],
+    "filament_settings_id": [
+        "Leon3D PLA INGEO Orange @Bricolabs SpongeBot 0.4"
+    ],
+    "filament_vendor": [
+        "Leon3D"
+    ],
+    "from": "User",
+    "hot_plate_temp": [
+        "60"
+    ],
+    "hot_plate_temp_initial_layer": [
+        "60"
+    ],
+    "inherits": "Generic PLA template @Bricolabs SpongeBot 0.4 nozzle",
+    "is_custom_defined": "0",
+    "name": "Leon3D PLA INGEO Orange @Bricolabs SpongeBot 0.4",
+    "pressure_advance": [
+        "0.04248"
+    ],
+    "version": "1.7.0.2"
+}

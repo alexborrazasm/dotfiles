@@ -1,0 +1,18 @@
+{
+    "from": "User",
+    "inherits": "Bricolabs SpongeBot 0.4 nozzle",
+    "is_custom_defined": "0",
+    "max_layer_height": [
+        "0.48"
+    ],
+    "min_layer_height": [
+        "0.16"
+    ],
+    "name": "Bricolabs SpongeBot 0.6 nozzle",
+    "nozzle_diameter": [
+        "0.6"
+    ],
+    "print_host": "http://169.254.0.2/",
+    "printer_settings_id": "Bricolabs SpongeBot 0.6 nozzle",
+    "version": "2.1.1.0"
+}

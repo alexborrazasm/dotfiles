@@ -3,9 +3,9 @@
   "position": "top",
   "height": 34,
   "spacing": 0,
-  "margin-top": 4,
-  "margin-left": 4,
-  "margin-right": 4,
+  "margin-top": 5,
+  "margin-left": 5,
+  "margin-right": 5,
   "modules-left": [
     "hyprland/workspaces",
     "custom/temperature",
@@ -86,18 +86,18 @@
   },
   "custom/temperature": {
     "exec": "sensors | awk '/^Tctl:/ {print int($2)}'",
-    "format": "<span color='#FFA500'> </span>{}°C ",
+    "format": "<span color='#FFA500'> </span> {}°C ",
     "interval": 5,
     "tooltip": true,
     "tooltip-format": "CPU temperature: {}°C"
   },
   "memory": {
-    "format": "<span color='#8A2BE2'>  </span>{used:0.1f}G ",
+    "format": "<span color='#8A2BE2'> </span> {used:0.1f}G ",
     "tooltip": true,
     "tooltip-format": "RAM usage: {used:0.2f}G/{total:0.2f}G"
   },
   "cpu": {
-    "format": "<span color='#FF9F0A'>  </span>{usage}% ",
+    "format": "<span color='#FF9F0A'> </span> {usage}% ",
     "tooltip": true
   },
   "clock": {

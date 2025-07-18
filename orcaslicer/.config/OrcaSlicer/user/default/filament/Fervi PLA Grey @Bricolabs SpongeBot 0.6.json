@@ -1,0 +1,34 @@
+{
+    "default_filament_colour": [
+        "#505050"
+    ],
+    "enable_pressure_advance": [
+        "1"
+    ],
+    "filament_flow_ratio": [
+        "0.81"
+    ],
+    "filament_max_volumetric_speed": [
+        "14.6"
+    ],
+    "filament_settings_id": [
+        "Fervi PLA Grey @Bricolabs SpongeBot 0.6"
+    ],
+    "filament_vendor": [
+        "Fervi"
+    ],
+    "from": "User",
+    "hot_plate_temp": [
+        "60"
+    ],
+    "hot_plate_temp_initial_layer": [
+        "60"
+    ],
+    "inherits": "Generic PLA template @Bricolabs SpongeBot 0.4 nozzle",
+    "is_custom_defined": "0",
+    "name": "Fervi PLA Grey @Bricolabs SpongeBot 0.6",
+    "pressure_advance": [
+        "0.034"
+    ],
+    "version": "1.7.0.2"
+}

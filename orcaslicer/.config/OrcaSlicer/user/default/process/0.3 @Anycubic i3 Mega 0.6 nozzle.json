@@ -1,0 +1,21 @@
+{
+    "default_acceleration": "6000",
+    "enable_arc_fitting": "0",
+    "from": "User",
+    "gap_infill_speed": "50",
+    "inherits": "process template @Anycubic i3 Mega 0.4 nozzle",
+    "initial_layer_infill_speed": "50",
+    "inner_wall_acceleration": "3000",
+    "inner_wall_speed": "50",
+    "is_custom_defined": "0",
+    "name": "0.3 @Anycubic i3 Mega 0.6 nozzle",
+    "outer_wall_acceleration": "3000",
+    "outer_wall_speed": "50",
+    "print_settings_id": "0.3 @Anycubic i3 Mega 0.6 nozzle",
+    "support_speed": "50",
+    "top_surface_acceleration": "3000",
+    "top_surface_speed": "50",
+    "travel_acceleration": "6000",
+    "travel_speed": "400",
+    "version": "1.7.0.2"
+}

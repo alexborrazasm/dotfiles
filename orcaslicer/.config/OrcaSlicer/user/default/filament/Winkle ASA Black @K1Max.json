@@ -1,0 +1,28 @@
+{
+    "default_filament_colour": [
+        "#101010"
+    ],
+    "enable_pressure_advance": [
+        "1"
+    ],
+    "filament_flow_ratio": [
+        "0.9625"
+    ],
+    "filament_max_volumetric_speed": [
+        "14"
+    ],
+    "filament_settings_id": [
+        "Winkle ASA Black @K1Max"
+    ],
+    "filament_vendor": [
+        "Winkle"
+    ],
+    "from": "User",
+    "inherits": "Creality Generic ASA",
+    "is_custom_defined": "0",
+    "name": "Winkle ASA Black @K1Max",
+    "pressure_advance": [
+        "0.04242"
+    ],
+    "version": "2.1.1.0"
+}
