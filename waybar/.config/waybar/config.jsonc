@@ -15,6 +15,7 @@
   "modules-center": ["hyprland/window"],
   "modules-right": [
     "tray",
+    "hyprland/language",
     "network",
     "power-profiles-daemon",
     "battery",
@@ -163,6 +164,11 @@
     "on-click": "swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
     "escape": true
+  },
+  "hyprland/language": {
+    "format": "{}",
+    "format-en": "US",
+    "format-es": "ES",
   }
 }
 

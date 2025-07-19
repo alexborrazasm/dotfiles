@@ -61,6 +61,7 @@
 #custom-temperature,
 #memory,
 #cpu,
+#language.
 #window {
   background-color: @base;
   border-radius: 10px;
