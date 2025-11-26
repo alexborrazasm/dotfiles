@@ -1,11 +1,6 @@
 # ~/.zshrc
 ZSH_CONFIG_DIR="$HOME/.config/zsh"
 
-# Launch Hyprland with uwsm
-if uwsm check may-start; then
-  exec uwsm start hyprland-uwsm.desktop
-fi
-
 eval "$(dircolors -b)"
 
 # Enable completion system
@@ -34,3 +29,6 @@ zstyle ':completion:*:default' list-colors "${(s.:.)LS_COLORS}"
 
 # Load plugins or framework (like zinit/antidote/etc)
 [[ -f "$ZSH_CONFIG_DIR/plugins.zsh" ]] && source "$ZSH_CONFIG_DIR/plugins.zsh"
+
+# Direnv hook
+eval "$(direnv hook zsh)"

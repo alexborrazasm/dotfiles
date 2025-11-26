@@ -1,16 +1,17 @@
 if vim.g.vscode then
   -- VSCode extension
   -- System clipboard shortcuts
-  vim.keymap.set("n", "<Space>y", '"+y', { noremap = true, silent = true })
-  vim.keymap.set("v", "<Space>y", '"+y', { noremap = true, silent = true })
-  vim.keymap.set("x", "<Space>y", '"+y', { noremap = true, silent = true })
-  vim.keymap.set("n", "<Space>d", '"+d', { noremap = true, silent = true })
-  vim.keymap.set("v", "<Space>d", '"+d', { noremap = true, silent = true })
-  vim.keymap.set("x", "<Space>d", '"+d', { noremap = true, silent = true })
-  vim.keymap.set("n", "<Space>p", '"+p', { noremap = true, silent = true })
-  vim.keymap.set("n", "<Space>P", '"+P', { noremap = true, silent = true })
-  vim.keymap.set("v", "<Space>p", '"+p', { noremap = true, silent = true })
-  vim.keymap.set("v", "<Space>P", '"+P', { noremap = true, silent = true })
+  local opts = { noremap = true, silent = true }
+
+  -- copy
+  vim.keymap.set({ "n", "v", "x" }, "<Space>y", '"+y', opts)
+
+  -- cut
+  vim.keymap.set({ "n", "v", "x" }, "<Space>d", '"+d', opts)
+
+  -- paste
+  vim.keymap.set({ "n", "v" }, "<Space>p", '"+p', opts)
+  vim.keymap.set({ "n", "v" }, "<Space>P", '"+P', opts)
 else
   -- ordinary Neovim
   -- bootstrap lazy.nvim, LazyVim and your plugins

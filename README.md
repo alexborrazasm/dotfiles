@@ -1,4 +1,53 @@
 # My dotfiles
+
+# Work in progress
+
+# Install NIX
+
+sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
+```
+
+## Enable flakes
+
+```bash
+mkdir -p ~/.config/nix
+nano ~/.config/nix/nix.conf
+```
+And add:
+```bash
+experimental-features = nix-command flakes
+```
+
+## Install `direnv`
+
+```bash
+sudo apt install direnv
+```
+For better Nix flake support, add to `~/.config/direnv/direnvrc`:
+
+```bash
+# Better support for Nix flakes
+use_flake() {
+  watch_file flake.nix
+  watch_file flake.lock
+  eval "$(nix print-dev-env)"
+}
+```
+
+### For enable: 
+
+```bash
+direnv allow
+```
+
+extract
+
+sudo mkdir /usr/share/zsh-extract
+sudo cd /usr/share/zsh-extract
+wget https://raw.githubusercontent.com/le0me55i/zsh-extract/refs/heads/master/extract.plugin.zsh
+
+https://github.com/pop-os/shell#
+
 # TODO This readme is obsolete.
 ## Index
 
