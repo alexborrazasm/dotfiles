@@ -1,13 +1,251 @@
 # My dotfiles
 
-# Work in progress
+Now running Fedora Workstation 43 (GNOME) on an [Asus Zenbook 16](https://wiki.archlinux.org/title/ASUS_Zenbook_UM5606).
 
-# Install NIX
+## How to setup a .dotfile
 
-sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
+### 1. Install stow:
+
+Fedora:
+```bash
+sudo dnf install stow -y
 ```
 
-## Enable flakes
+Arch Linux:
+```bash
+sudo pacman -S stow --noconfirm
+```
+
+Debian/Ubuntu:
+```bash
+sudo apt update
+sudo apt install stow -y
+```
+
+### 2. Clone repository:
+
+```bash
+git clone https://github.com/alexborrazasm/dotfiles.git
+cd dotfiles
+```
+
+### 3. Stow the configuration you want
+
+For example, to install `zsh` and `nvim` configs:
+
+```bash
+stow zsh
+stow nvim
+```
+
+---
+
+# Guide to set up all `.dotfiles`
+
+These steps assume we're using Fedora; they shouldn't be very different in other distributions.
+
+## Install useful tools:
+
+```bash
+sudo dnf install neovim htop fastfetch
+```
+
+## Fonts
+
+I use Cousine from [Nerd Fonts](https://www.nerdfonts.com/) 
+
+How to install:
+
+1. **Download the fonts .zip from [Nerd Fonts](https://www.nerdfonts.com/font-downloads)**
+
+2. **Copy to fonts**
+
+   ```bash
+   sudo mv ~/Downloads/Cousine.zip /usr/share/fonts/
+   ```
+
+3. **Unpack the fonts**
+   
+   ```bash
+   cd /usr/share/fonts
+   sudo unzip Cousine.zip -d Cousine
+   sudo rm Cousine.zip # Remove .zip
+   ```
+
+> [!NOTE]
+> A Nerd Font is necessary for some terminal customization.
+
+---
+
+## Gnome things
+
+### Gnome Tweaks
+
+Use GNOME Tweaks to change fonts, adjust window behavior and customize the desktop environment.
+
+To install:
+```
+sudo dnf install gnome-tweaks -y
+```
+
+### Icon Theme
+
+Papirus Icon Theme
+
+```bash
+sudo dnf install papirus-icon-theme
+```
+
+> [!NOTE]
+> After installing, open GNOME Tweaks → Appearance → Icons to select the Papirus theme.
+
+### Extensions
+
+To add extensions, we need to install:
+```bash
+sudo dnf install gnome-extensions-app -y
+```
+
+![Screenshot of gnome extensions](./images/gnome-extensions.png)
+
+## Change Workspaces Behavior
+
+I use a custom script to configure GNOME workspace shortcuts.
+
+### What the script does
+
+- Super + 1..9 → Switch to workspace 1..9
+
+- Super + Shift + 1..9 → Move the focused window to workspace 1..9
+
+- Disables Dock “Super + Number” shortcuts, so workspace switching works without conflicts
+
+### Run the script
+```bash
+./scripts/gnome-workspaces-super.sh
+```
+
+> [!NOTE]
+> If needed, run this once to make the script executable:
+> `chmod +x scripts/gnome-workspaces-super.sh`
+
+---
+
+## Kitty
+
+A fast, GPU-based, feature-rich terminal emulator for Linux, macOS, and 
+Windows. Supports ligatures, graphics, tabs, and modern customization.
+
+To install:
+```bash
+sudo dnf install kitty -y
+```
+
+*Stow* configs:
+```bash
+stow kitty
+```
+
+---
+
+## ZSH, terminal utils and theme
+
+### Starship:
+```bash
+sudo dnf copr enable atim/starship
+sudo dnf install starship
+``` 
+
+### Zsh, plugins, bat, lsd:
+```bash
+sudo dnf install zsh zsh-syntax-highlighting zsh-autosuggestions bat lsd
+```
+
+> [!NOTE]
+>[LSD](https://github.com/lsd-rs/lsd) (LSDeluxe) is a modern replacement for the
+ traditional ls command, designed to enhance the way you view directory contents.
+
+> [!NOTE]
+>[BAT](https://github.com/sharkdp/bat) is a cat clone with syntax highlighting 
+and Git integration.
+
+The [SUDO](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/sudo) plugin:
+
+```bash
+sudo mkdir /usr/share/zsh-sudo
+sudo cd /usr/share/zsh-sudo
+sudo wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh
+```
+
+The Extract plugin:
+```bash
+sudo mkdir /usr/share/zsh-extract
+sudo cd /usr/share/zsh-extract
+wget -O extract.plugin.zsh https://raw.githubusercontent.com/le0me55i/zsh-extract/refs/heads/master/extract.plugin.zsh
+
+```
+
+### FZF
+
+[FZF](https://github.com/junegunn/fzf) is a command-line fuzzy finder that 
+allows for fast and efficient searching in files, directories, and more.
+
+#### Basic Usage
+
+**Interactive Fuzzy Finder:**
+
+FZF is primarily used to interactively search and select items from a list. For 
+example, you can search through files, command history, and more.
+
+- **Search through command history:**
+  Pressing `Ctrl + R` allows you to search through your command history 
+  interactively. As you type, FZF filters the history based on your input, 
+  making it easy to find and execute previous commands.
+
+- **Search through files (fzf-tmux integration):**
+  `Ctrl + T` launches FZF in file search mode. This lets you search for files 
+  and directories interactively from the current directory. If you are using 
+  tmux, FZF integrates seamlessly with it.
+
+#### Install
+
+```bash
+sudo dnf install fzf
+```
+
+### Stow `.dotfiles`
+
+```bash
+stow starship
+stow zsh
+```
+
+### Change default **SHELL** to zsh
+
+```bash
+chsh -s $(which zsh)
+```
+
+> [!NOTE]
+> For shell changes to take effect, it may be necessary to restart your session 
+> or computer.
+
+You can check the default SHELL:
+```bash
+echo $SHELL
+```
+
+---
+
+## NIX
+
+```bash
+sudo dnf copr enable petersen/nix
+sudo dnf install nix
+sudo systemctl enable --now nix-daemon
+```
+
+### Enable flakes
 
 ```bash
 mkdir -p ~/.config/nix
@@ -21,33 +259,33 @@ experimental-features = nix-command flakes
 ## Install `direnv`
 
 ```bash
-sudo apt install direnv
+sudo dnf install direnv -y
 ```
-For better Nix flake support, add to `~/.config/direnv/direnvrc`:
 
-```bash
-# Better support for Nix flakes
-use_flake() {
-  watch_file flake.nix
-  watch_file flake.lock
-  eval "$(nix print-dev-env)"
-}
+### Better support for Nix Flakes
+
+Clone on your home:
+````bash
+git clone https://github.com/nix-community/nix-direnv
+```
+
+And stow `.dotfiles`:
+```
+stow direnv
 ```
 
 ### For enable: 
 
+Loading one `.direnv`:
 ```bash
 direnv allow
 ```
 
-extract
+# Work in progress
 
-sudo mkdir /usr/share/zsh-extract
-sudo cd /usr/share/zsh-extract
-wget https://raw.githubusercontent.com/le0me55i/zsh-extract/refs/heads/master/extract.plugin.zsh
+RPM FUSION DISCORD
 
-https://github.com/pop-os/shell#
-
+https://rpmfusion.org/Configuration#Installing_Free_and_Nonfree_Repositories
 # TODO This readme is obsolete.
 ## Index
 
@@ -82,204 +320,6 @@ https://github.com/pop-os/shell#
    3.3 [Windows Subsystem for Linux (WSL)](#windows-subsystem-for-linux-wsl)
 
 **Warning**: Don’t blindly use my settings unless you know what that entails. Use at your own risk!
-
-# Set up dotfiles
-
-1. **First clone the repository**
-
-   ```bash
-   git clone https://github.com/alexborrazasm/dotfiles.git
-   ```
-
-## Fonts
-
-I use Cousune from [Nerd Fonts](https://www.nerdfonts.com/) 
-
-How to install:
-
-1. **Download the fonts .zip from [Nerd Fonts](https://www.nerdfonts.com/font-downloads)**
-
-2. **Copy to fonts**
-
-   ```bash
-   sudo mv ~/Downloads/Cousine.zip /usr/share/fonts/
-   ```
-
-3. **Unpack the fonts**
-   
-   ```bash
-   cd /usr/share/fonts
-   sudo unzip Cousine.zip -d Cousine
-   sudo rm Cousine.zip # Remove .zip
-   ```
-
-## Zsh
-
-Zsh is a powerful command-line shell for Unix systems.
-
-To install Zsh, follow these steps:
-
-1. **Install Zsh **:
-
-   On Red Hat/CentOS/Fedora:
-   ```bash
-   sudo dnf upgrade
-   sudo dnf install zsh wget bat lsd
-   ```
-   On Debian/Ubuntu/Mint
-   ```bash
-   sudo apt update
-   sudo apt upgrade
-   sudo apt install zsh wget bat lsd
-   ```
-
-2. **Change default SHELL**
-
-   ```bash
-   chsh -s $(which zsh)
-   ```
-
-3. **You can check the default SHELL**
-
-   ```bash
-   echo $SHELL
-   ```
-
-3. **Install plugins**:
-   
-   On Red Hat/CentOS/Fedora:
-   ```bash
-   sudo dnf install zsh-syntax-highlighting zsh-autosuggestions
-   ```
-   On Debian/Ubuntu/Mint
-   ```
-   sudo apt install zsh-syntax-highlighting zsh-autosuggestions
-   ```
-
-4. **The [SUDO](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/sudo) plugin**
-
-   ```bash
-   sudo mkdir /usr/share/zsh-sudo
-   cd /usr/share/zsh-sudo
-   sudo wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh
-   cd
-   ```
-
-5. **Theme**
-
-   Install [p10k](https://github.com/romkatv/powerlevel10k) theme.
-
-6. **Copy .zshrc && .p10k.zsh**
-
-   ```bash
-   cp -f ~/dotfiles/zsh/.zshrc ~/.zshrc
-   cp -f ~/dotfiles/p10k/.p10k.zsh ~/.p10k.zsh
-   ```
-   Note for Debian/Ubuntu/Mint Users:
-
-   On Debian-based distributions, the bat command might be aliased to batcat. You need to update the alias in your .zshrc file. To do this:
-
-   1. Open the .zshrc file in a text editor:
-
-      ```bash
-      nano ~/.zshrc
-      ```
-   2. Make these changes
-
-      ```bash
-      #alias cat='bat'
-      alias cat ='batcat'
-      #alias catp='bat -p' #plain text
-      alias catp='batcat -p' #plain text
-      ```
-   
-   3. Save the changes and exit the text editor (Ctrl + X, then Y to confirm, then Enter).
-
-Once you've completed these steps:
-
-- For shell changes to take effect, it may be necessary to restart your session or computer.
-
-- Restart your terminal or source your .zshrc to apply the changes (source ~/.zshrc).
-   
-- Your Zsh shell should now be configured with plugins like syntax highlighting, autosuggestions, and the sudo plugin, along with the Powerlevel10k theme.
-
-### Linking Zsh Configuration to Root User
-
-You can link your configuration to that of the root user.
-
-1. **Login as root**
-
-   ```bash
-   sudo su
-   ```
-
-2. **Link the configs**
-
-   ```bash
-   cd
-   ln -s /home/<yourusername>/.zshrc /root/.zshrc
-   ln -s /home/<yourusername>/.p10k.zsh /root/.p10k.zsh
-   ln -s /home/<yourusername>/powerlevel10k /root/powerlevel10k
-   ```
-
-These commands create symbolic links (ln -s) from the original files in /home/`<yourusername>`/ to your root user's home directory (/root/). This allows the root user to use the same configuration files as your regular user.
-
-3. **Change default SHELL**
-
-   ```bash
-   chsh -s $(which zsh)
-   ```
-
-Now, when you log in as root and start a new Zsh session, it should use the Powerlevel10k theme with the configurations you've set up.
-
-### Note
-- [LSD](https://github.com/lsd-rs/lsd) (LSDeluxe) is a modern replacement for the traditional ls command, designed to enhance the way you view directory contents.
-- [BAT](https://github.com/sharkdp/bat) is a cat clone with syntax highlighting and Git integration.
-
-## LunarVim
-
-[LunarVim](https://www.lunarvim.org/es/) is a Neovim distribution that offers a pre-configured setup to enhance the development experience.
-
-## FZF
-
-[FZF](https://github.com/junegunn/fzf) is a command-line fuzzy finder that allows for fast and efficient searching in files, directories, and more.
-
-### Basic Usage
-
-**Interactive Fuzzy Finder:**
-
-FZF is primarily used to interactively search and select items from a list. For example, you can search through files, command history, and more.
-
-- **Search through command history:**
-  Pressing `Ctrl + R` allows you to search through your command history interactively. As you type, FZF filters the history based on your input, making it easy to find and execute previous commands.
-
-- **Search through files (fzf-tmux integration):**
-  `Ctrl + T` launches FZF in file search mode. This lets you search for files and directories interactively from the current directory. If you are using tmux, FZF integrates seamlessly with it.
-
-## Alacritty
- [Alacritty](https://github.com/alacritty/alacritty) is a modern, fast terminal emulator for Unix systems.
-
-To install Alacritty, follow these steps:
-
-   On Red Hat/CentOS/Fedora:
-
-1. **Install Zsh**:
-
-   ```bash
-   sudo dnf upgrade
-   sudo dnf install alacritty
-   ```
-
-2. **Copy config**
-
-   ```bash
-   mkdir -p .config/alacritty
-   cp dotfiles/alacritty/* .config/alacritty
-   ```
-
-## Asus Linux
-
-[Asus Linux](https://asus-linux.org/)
 
 ## GRUB
 

@@ -7,9 +7,7 @@ alias lla="lsd -lha --group-dirs=first"
 alias ls="lsd --group-dirs=first"
 
 # bat
-#alias cat="bat -p" # Arch
-alias bat="batcat" # Debian
-alias cat="batcat -p" # Debian
+alias cat="bat -pP"
 # cat images on kitty
 alias icat="kitten icat"
 
