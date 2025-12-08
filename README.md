@@ -265,12 +265,12 @@ sudo dnf install direnv -y
 ### Better support for Nix Flakes
 
 Clone on your home:
-````bash
+```bash
 git clone https://github.com/nix-community/nix-direnv
 ```
 
 And stow `.dotfiles`:
-```
+```bash
 stow direnv
 ```
 
@@ -279,6 +279,83 @@ stow direnv
 Loading one `.direnv`:
 ```bash
 direnv allow
+```
+
+## GRUB 
+
+### Theme
+
+I use [Distro Grub Themes](https://github.com/AdisonCavani/distro-grub-themes).
+
+It has several flavors (Asus, Fedora, Arch).
+
+#### Install Distro Grub Themes
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/AdisonCavani/distro-grub-themes.git
+   ```
+
+2. Create theme folder:
+   ```bash
+   sudo mkdir /boot/grub2/themes 
+   sudo mkdir /boot/grub2/themes/fedora
+   ```
+
+3. Copy selected theme:
+
+   In my case, the Fedora flavour.
+
+   ```bash
+   cd distro-grub-themes/themes
+   sudo tar -C /boot/grub2/themes/fedora -xf fedora.tar 
+   ```
+
+4. Remove repo
+   ```bash
+   cd
+   rm -rf distro-grub-themes
+   ```
+
+5. Configure GRUB
+
+   ```bash
+   sudo vi /etc/default/grub
+   ```
+
+   Add these lines:
+   ```
+   GRUB_TERMINAL_OUTPUT="gfxterm"
+   GRUB_GFXMODE=1600x1200
+   GRUB_THEME="/boot/grub2/themes/fedora/theme.txt"
+   ```
+
+   And update grub config:
+   ```bash
+   sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+   ```
+
+> [!WARNING]
+> Replace `1600x1200` with your desired screen resolution.
+> Im my native screen resolution is `2880x1800` but use smaller one to have 
+> larger fonts
+
+### Saved last choice
+
+In Fedora 43 it comes configured by default if not edit:
+```bash
+sudo vi /etc/default/grub
+```
+
+And add or modify:
+```bash 
+GRUB_DEFAULT=saved
+GRUB_SAVEDEFAULT=true
+```
+
+Finally, update grub config:
+```bash
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
 
 # Work in progress
@@ -321,46 +398,6 @@ https://rpmfusion.org/Configuration#Installing_Free_and_Nonfree_Repositories
 
 **Warning**: Don’t blindly use my settings unless you know what that entails. Use at your own risk!
 
-## GRUB
-
-[Minimal ROG theme](https://github.com/hotaru-hspr/rog-grub)
-
-Follow these steps:
-
-1. **Install theme**:
-   
-   ```bash
-   git clone https://github.com/hotaru-hspr/rog-grub
-   cd rog-grub
-   sudo chmod +x install.sh
-   sudo ./install.sh -s 2k
-   ````
-
-2. **Remove repo**:
-
-   ```bash
-   cd ..
-   rm -rf rog-grub
-   ```
-
-3. **GRUB saved last choice**
-
-    ```bash
-    sudo nano /etc/default/grub
-    ```
-
-4. **Add to file /etc/default/grub**
-
-    ```bash 
-    GRUB_DEFAULT=saved
-    GRUB_SAVEDEFAULT=true
-    ```
-
-5. **Update grub files**
-    On Red Hat/CentOS/Fedora:
-    ```bash
-    sudo grub2-mkconfig -o /boot/grub2/grub.cfg
-    ```
 
 # Tips for Windows Dual Boot
 

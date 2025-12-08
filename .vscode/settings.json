@@ -1,19 +1,24 @@
 {
   "cSpell.words": [
     "Adwaita",
+    "Asus",
     "atim",
     "chsh",
     "copr",
     "Cousine",
     "direnv",
     "fastfetch",
+    "GFXMODE",
+    "gfxterm",
     "linux",
+    "mkconfig",
     "neovim",
     "noconfirm",
     "nvim",
     "pacman",
     "papirus",
     "petersen",
-    "powerline"
+    "powerline",
+    "SAVEDEFAULT"
   ]
 }
