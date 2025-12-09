@@ -414,7 +414,7 @@ sudo usermod -aG docker $USER
 
 3. Follow the prompts to install and connect.
 
-### Preventing WiFi 7 Cards From Switching to 6 GHz on Linux (ASUS Zenbook UM5606)
+### Preventing WiFi 7 Cards from Switching to 6 GHz on Linux (ASUS Zenbook UM5606)
 
 The Mediatek MT7925 WiFi card (build on my Asus laptop) supports 6 GHz 
 (WiFi 6E / 7). On Linux, it may try to connect using 6 GHz, even if the network
@@ -441,6 +441,43 @@ This prevents the MT7925 from trying 6 GHz and keeps your connection stable.
 
 > [!NOTE]
 > It's probably not the best solution, but it works.
+
+## Installing IntelliJ IDEA on Linux
+
+1. Download it from [here](https://www.jetbrains.com/idea/download/?section=linux).
+
+2. Extract it to /opt:
+
+   ```bash
+   cd ~/Downloads
+   sudo tar -xzf idea*.tar.gz -C /opt/
+   sudo mv /opt/idea* /opt/idea
+   ```
+   
+3. Create a symbolic link so it’s available in your PATH:
+
+   ```bash
+   sudo ln -s /opt/idea/bin/idea.sh /usr/local/bin/idea
+   ```
+
+4. Create a `.desktop` file to have a shortcut and icon:
+
+   ```bash
+   mkdir -p ~/.local/share/applications
+
+   cat << 'EOF' > ~/.local/share/applications/idea-ultimate.desktop
+   [Desktop Entry]
+   Version=1.0
+   Type=Application
+   Name=IntelliJ IDEA Ultimate
+   Icon=/opt/idea/bin/idea.png
+   Exec="/usr/local/bin/idea"
+   Comment=Capable & Ergonomic IDE for JVM
+   Categories=Development;IDE;
+   Terminal=false
+   StartupWMClass=jetbrains-idea
+   EOF
+   ```
 
 # Work in progress
 
