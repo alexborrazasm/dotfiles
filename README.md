@@ -401,6 +401,47 @@ This allows you to run docker without typing sudo every time:
 sudo usermod -aG docker $USER
 ``` 
 
+## Eduroam
+
+### How to install
+
+1. Download the installer for your university from [cat eduroam](https://cat.eduroam.org/).
+
+2. Open a terminal and run:
+   ```bash
+   python3 Downloads/eduroam-linux-UdC-eduroam.py
+   ```
+
+3. Follow the prompts to install and connect.
+
+### Preventing WiFi 7 Cards From Switching to 6 GHz on Linux (ASUS Zenbook UM5606)
+
+The Mediatek MT7925 WiFi card (build on my Asus laptop) supports 6 GHz 
+(WiFi 6E / 7). On Linux, it may try to connect using 6 GHz, even if the network
+(like Eduroam) only uses 2.4 GHz or 5 GHz.
+
+This causes:
+
+- Dropped connections
+- Failed authentication
+- Unstable network
+
+#### The fix
+
+Force the connection to `5 GHz` only using NetworkManager.
+```bash
+nmcli connection modify "eduroam" wifi.band a
+```
+What it does:
+- Enables 5 GHz only
+- Disables 2.4 GHz
+- Automatically blocks 6 GHz
+
+This prevents the MT7925 from trying 6 GHz and keeps your connection stable.
+
+> [!NOTE]
+> It's probably not the best solution, but it works.
+
 # Work in progress
 
 RPM FUSION DISCORD

@@ -7,12 +7,16 @@
     "copr",
     "Cousine",
     "direnv",
+    "eduroam",
+    "Eduroam",
     "fastfetch",
     "GFXMODE",
     "gfxterm",
     "linux",
+    "Mediatek",
     "mkconfig",
     "neovim",
+    "nmcli",
     "noconfirm",
     "nvim",
     "pacman",
@@ -20,6 +24,7 @@
     "petersen",
     "powerline",
     "SAVEDEFAULT",
-    "usermod"
+    "usermod",
+    "Zenbook"
   ]
 }
