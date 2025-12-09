@@ -374,11 +374,26 @@ I use [this script](https://github.com/docker/docker-install).
 ```bash
 curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh 
+sudo systemctl enable docker --now 
 ```
-Remove script:
+#### Remove script:
 ```bash
 rm get-docker.sh 
 ```
+
+#### Verify the installation
+
+Check Docker version:
+```bash
+docker --version
+```
+
+Test Docker:
+```bash
+docker run hello-world
+``` 
+
+If you see the “Hello from Docker!” message, everything is working correctly.
 
 ### Add your user to the docker group
 This allows you to run docker without typing sudo every time:
