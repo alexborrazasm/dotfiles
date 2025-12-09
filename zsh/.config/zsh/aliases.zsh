@@ -28,5 +28,3 @@ alias :q="exit"
 alias ncg="nix-collect-garbage -d"
 alias nfu="nix flake update"
 
-# UNI 
-alias fic="cd /home/alex/Documents/fic/3_curso/q_1"

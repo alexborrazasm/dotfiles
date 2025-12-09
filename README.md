@@ -358,6 +358,34 @@ Finally, update grub config:
 sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
 
+## Firewall UFW
+
+### Install 
+```bash
+sudo dnf install ufw
+sudo ufw enable
+```
+
+## Docker
+
+I use [this script](https://github.com/docker/docker-install).
+
+### Install docker
+```bash
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh 
+```
+Remove script:
+```bash
+rm get-docker.sh 
+```
+
+### Add your user to the docker group
+This allows you to run docker without typing sudo every time:
+```bash
+sudo usermod -aG docker $USER
+``` 
+
 # Work in progress
 
 RPM FUSION DISCORD
