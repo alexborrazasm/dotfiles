@@ -41,7 +41,7 @@
     - [Add your user to the docker group](#add-your-user-to-the-docker-group)
   - [Eduroam](#eduroam)
     - [How to install](#how-to-install)
-    - [Preventing WiFi 7 Cards from Switching to 6 GHz on Linux (ASUS Zenbook UM5606)](#preventing-wifi-7-cards-from-switching-to-6-ghz-on-linux-asus-zenbook-um5606)
+    - [Preventing WiFi 6e/7 Cards from Switching to 6 GHz on Linux (ASUS Zenbook UM5606)](#preventing-wifi-6e7-cards-from-switching-to-6-ghz-on-linux-asus-zenbook-um5606)
       - [The fix](#the-fix)
   - [Installing IntelliJ IDEA on Linux](#installing-intellij-idea-on-linux)
   - [Fedora RPM Fusion repositories](#fedora-rpm-fusion-repositories)
@@ -464,7 +464,7 @@ sudo usermod -aG docker $USER
 
 3. Follow the prompts to install and connect.
 
-### Preventing WiFi 7 Cards from Switching to 6 GHz on Linux (ASUS Zenbook UM5606)
+### Preventing WiFi 6e/7 Cards from Switching to 6 GHz on Linux (ASUS Zenbook UM5606)
 
 The Mediatek MT7925 WiFi card (build on my Asus laptop) supports 6 GHz 
 (WiFi 6E / 7). On Linux, it may try to connect using 6 GHz, even if the network
