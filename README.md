@@ -1,6 +1,6 @@
 # My dotfiles
 
-Now running Fedora Workstation 43 (GNOME) on an [Asus Zenbook 16](https://wiki.archlinux.org/title/ASUS_Zenbook_UM5606).
+Now running Fedora Workstation 43 (GNOME) on an [Asus Zenbook S 16](https://wiki.archlinux.org/title/ASUS_Zenbook_UM5606) 
 
 ## How to setup a .dotfile
 
@@ -479,210 +479,20 @@ This prevents the MT7925 from trying 6 GHz and keeps your connection stable.
    EOF
    ```
 
-# Work in progress
+## Fedora RPM Fusion repositories
 
-RPM FUSION DISCORD
+RPM Fusion provides additional packages that are not shipped by Fedora by default
+(due to licensing or patent restrictions). Many commonly used applications
+(multimedia codecs, proprietary drivers, etc.) depend on these repositories.
 
-https://rpmfusion.org/Configuration#Installing_Free_and_Nonfree_Repositories
-# TODO This readme is obsolete.
-## Index
+[Webpage](https://rpmfusion.org/Configuration#Installing_Free_and_Nonfree_Repositories).
 
-1. [Set up dotfiles](#set-up-dotfiles)
-   
-   1.1 [Install Fonts](#fonts)
+### Install
 
-   1.2 [Install and configure ZSH](#zsh)
+Enable both **Free** and **Nonfree** RPM Fusion repositories by running:
 
-   1.3 [LunarVim](#lunarvim)
-
-   1.4 [FZF](#fzf)
-
-   1.5 [Alacritty](#alacritty)
-
-   1.6 [Asus Linux](#asus-linux)
-
-   1.7 [Set up GRUB & theming](#grub)
-
-2. [Tips for Windows Dual Boot](#tips-for-windows-dual-boot)
-
-   2.1 [The clock problem](#the-clock-problem)
-
-   2.2 [Disable fast startup](#disable-fast-startup)
-
-3. [Tips for Windows](#tips-for-windows)
-   
-   3.1 [Disable cpu boost on laptop](#disable-cpu-boost-on-laptop)
-
-   3.2 [Consent Prompt in Windows](#changing-the-consent-prompt-behavior-in-windows)
-
-   3.3 [Windows Subsystem for Linux (WSL)](#windows-subsystem-for-linux-wsl)
-
-**Warning**: Don’t blindly use my settings unless you know what that entails. Use at your own risk!
-
-
-# Tips for Windows Dual Boot
-
-Classic problems when using both systems
-
-## The clock problem
-Windows and Linux use two different approaches to keep track of time.
-### The problem
-- Linux assumes that your computer hardware clock is set to UTC (Coordinated Universal Time) and adjusts time by adding an offset to UTC. 
-- Windows assumes the hardware clock is set to Local and doesn’t adjust time by adding an offset.
-### The solution
-- Change Windows to UTC.
-- Change Linux to Local time.
-
-### Fix in Windows
-
-1. Open the Registry editor by pressing **Win + R** and entering the `regedit` command.
-
-2. In the Registry editor, navigate to the following key:
-
-   ```
-   HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation
-   ```
-
-3. Create a new value with the DWORD type and the name RealTimeIsUniversal.
-
-4. Double-click the created RealTimeIsUniversal value and set the value to 1.
-
-5. Restart your computer for the changes to take effect.
-
-It may be necessary to resynchronize the clock in settings.
-
-### Note:
-Changing registry settings can affect system stability and security. Proceed with caution and make sure to follow the steps accurately.
-
-### Fix in Linux
-
-   ```bash
-   timedatectl set-local-rtc 1
-   ````
-
-   This command sets the system clock to interpret the hardware clock as set to local time (1), ensuring correct synchronization between Linux and Windows in dual-boot configurations.
-
-   `Note`, in my last installation of Fedora 40 it already came in localtime, in this case if you want you want to put it in UTC:
-
-   ```bash
-   timedatectl set-local-rtc 0
-   ```
-
-   `Extra`, you can check if your linux is in localtime or not:
-
-   ```bash
-   ❯ timedatectl
-                  Local time: Sat 2024-08-31 03:36:53 CEST
-              Universal time: Sat 2024-08-31 01:36:53 UTC
-                    RTC time: Sat 2024-08-31 01:36:52
-                   Time zone: Europe/Madrid (CEST, +0200)
-   System clock synchronized: yes
-                 NTP service: active
-             RTC in local TZ: no  # <--- no = UTC | yes = localtime
-   ```
-
-## Disable fast startup
-Fast Startup works by hibernating the kernel session instead of fully shutting down and restarting the system. This can lead to issues with file system integrity, especially when accessing shared partitions (like NTFS partitions) from Linux. Disabling Fast Startup ensures that partitions are properly unmounted and any changes made are correctly written to disk.
-
-1. Open the Power Options editor by pressing **Win + R** and entering the `powercfg.cpl` command.
-
-2. On the left sidebar of the Power Options window, click on "Choose what the power buttons do".
-
-3. Uncheck **Turn on fast start-up (recomended)**.
-
-# Tips for Windows
-
-## Disable cpu boost on laptop
-
-This can significantly reduce temperatures, and in many cases, such as during gaming, you may not notice a loss in performance.
-
-### Steps to Disable Processor Performance Boost Mode:
-
-#### Using Power Options:
-
-1. Open the Power Options editor by pressing **Win + R** and entering the `powercfg.cpl` command.
-
-2. Find and click on "Change plan settings" for your selected power plan.
-
-3. Click on "Change advanced power settings".
-
-4. In the Power Options window, locate and expand "Processor Power Management".
-
-5. Under it, find "Processor performance boost mode".
-
-6. Set the setting to "Disabled".
-
-7. Click **Apply** and **OK** to save changes.
-
-#### If Option is Not Available (Modify Registry):
-
-1. Open the Registry editor by pressing **Win + R** and entering the `regedit` command.
-
-2. Navigate to the following path:
-
-   ```
-   Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\be337238-0d82-4146-a960-4f3749d470c7
-   ````
-
-3. Find the entry named "Attributes".
-
-4. Change its value from "1" to "0". If this does not work, try changing it to "2".
-
-5. Reopen the Power Options window.
-
-6. Check if the "Processor performance boost mode" option is now available.
-
-### Note:
-Changing registry settings can affect system stability and security. Proceed with caution and make sure to follow the steps accurately.
-
-## Changing the Consent Prompt Behavior in Windows
-
-Changing the consent prompt behavior in Windows is crucial for enhancing security and managing user authentication effectively.
-
-### Steps to Change Consent Prompt Behavior in Windows
-
-1. Press **Win + R** to open the "Run" dialog box.
-2. Type `regedit` and press Enter. If the UAC (User Account Control) window appears, confirm to continue.
-
-3. Navigate to the following registry path:
+```bash
+sudo dnf install -y \
+  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
-```
-
-4. Look for a DWORD value named `ConsentPromptBehaviorAdmin`.
-- If it doesn't exist, you'll need to create it:
-  - Right-click in the empty space of the right panel, select **New** -> **DWORD (32-bit) Value**, and name it `ConsentPromptBehaviorAdmin`.
-
-5. Double-click on `ConsentPromptBehaviorAdmin` and change its value to `1` to prompt for a password. Here are the possible values and their meanings:
-- **0**: Elevate without prompting.
-- **1**: Prompt for credentials on the secure desktop.
-- **2**: Prompt for credentials on the normal desktop.
-- **3**: Prompt for consent on the secure desktop.
-- **4**: Prompt for consent on the normal desktop.
-- **5**: Prompt for consent from administrators on the secure desktop.
-- **6**: Prompt for consent from administrators on the normal desktop.
-
-6. Close the Registry Editor.
-7. Changes should take effect immediately. You may need to log out or restart your computer for full application.
-
-### Note:
-Changing registry settings can affect system stability and security. Proceed with caution and make sure to follow the steps accurately.
-
-##  Windows Subsystem for Linux ([WSL](https://learn.microsoft.com/en-us/windows/wsl/))
-Install Linux on Windows.
-
-Follow these steps:
-1. Open a PowerShell or Command Prompt with administrator privileges.
-
-2. Run the following command to install the desired Linux distribution. Replace `distro_name` with the name of the distribution you want to install (e.g., `ubuntu`, `kali-linux`, `debian`):
-   
-   ```bash
-   wsl --install -d distro_name
-   ```
-
-2. **Tip**: To see a list of available Linux distributions that you can install, run the following command:
-   
-   ```bash
-   wsl --list --online
-   ```
-##
