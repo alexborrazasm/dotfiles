@@ -12,6 +12,7 @@
     "fastfetch",
     "GFXMODE",
     "gfxterm",
+    "Headscale",
     "jetbrains",
     "linux",
     "Mediatek",
@@ -26,6 +27,8 @@
     "petersen",
     "powerline",
     "SAVEDEFAULT",
+    "systray",
+    "tailscale",
     "usermod",
     "Zenbook"
   ]

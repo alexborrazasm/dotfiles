@@ -46,6 +46,9 @@
   - [Installing IntelliJ IDEA on Linux](#installing-intellij-idea-on-linux)
   - [Fedora RPM Fusion repositories](#fedora-rpm-fusion-repositories)
     - [Install](#install-2)
+  - [Install Tailscale client](#install-tailscale-client)
+    - [Install](#install-3)
+    - [Activate Tailscale systray](#activate-tailscale-systray)
 <!-- TOC end -->
 
 # My dotfiles
@@ -545,4 +548,30 @@ Enable both **Free** and **Nonfree** RPM Fusion repositories by running:
 sudo dnf install -y \
   https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
   https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+```
+
+## Install Tailscale client
+
+A Zero Trust identity-based connectivity platform that replaces your legacy VPN, 
+SASE, and PAM and connects remote teams, multi-cloud environments, 
+CI/CD pipelines, Edge & IoT devices, and AI workloads.
+
+[Web](https://tailscale.com/).
+
+Also see open source implementation of a Tailscale server, 
+[Headscale](https://github.com/juanfont/headscale).
+
+### Install
+
+```bash
+curl -fsSL https://tailscale.com/install.sh | sh
+```
+
+### Activate Tailscale systray
+
+```bash
+sudo tailscale set --operator=$USER
+tailscale configure systray --enable-startup=systemd
+systemctl --user daemon-reload
+tailscale configure systray --enable-startup=systemd
 ```
