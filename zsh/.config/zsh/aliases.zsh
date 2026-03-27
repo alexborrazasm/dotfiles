@@ -1,8 +1,7 @@
 # lsd
-alias l="lsd -lh --group-dirs=first"
+alias l="lsd --group-dirs=first"
 alias ll="lsd -lh --group-dirs=first"
 alias la="lsd -a --group-dirs=first"
-alias l="lsd --group-dirs=first"
 alias lla="lsd -lha --group-dirs=first"
 alias ls="lsd --group-dirs=first"
 
@@ -18,13 +17,9 @@ alias neofetch="fastfetch"
 alias vi="nvim"
 alias vim="nvim"
 
-# some_command | copy
-alias copy="wl-copy"
-
 # exit
 alias :q="exit"
 
 # nix 
 alias ncg="nix-collect-garbage -d"
 alias nfu="nix flake update"
-

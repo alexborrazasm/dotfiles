@@ -18,6 +18,19 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
 zstyle ':completion:*:default' list-colors "${(s.:.)LS_COLORS}"
 
+# Case insensitive completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
+# Skip words when moving with Ctrl+Left/Right
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
+# Avoid treating certain characters as part of a word
+WORDCHARS=${WORDCHARS//\/[&.;]}
+
+# Disable the bell sound on errors
+setopt NO_BEEP
+
 # Load environment variables (PATH, etc)
 [[ -f "$ZSH_CONFIG_DIR/env.zsh" ]] && source "$ZSH_CONFIG_DIR/env.zsh"
 
